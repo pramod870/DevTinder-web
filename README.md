@@ -17,4 +17,18 @@ If you are developing a production application, we recommend using TypeScript an
     - Create a Vite + React application
     - Remove unccessary code and folder and write Hello words app 
     - Tailwind css  reference for this https://v3.tailwindcss.com/docs/guides/vite
-    - Add NavBar && Logo As well
+    - Add NavBar && Logo As wellar seperate Component file
+    - Install React Router DOM
+    - Create BrowserRouter > Routes > Route=/ Body > RouteChildren
+    -Create Outlet in your Body Component 
+    - Create Footer
+
+
+
+Body 
+    NavBar
+    Route=/ => Feed
+    Route=/login => Login
+    Route=/connections => Connections
+    Route=/profile => Profile
+    
