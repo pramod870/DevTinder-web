@@ -26,6 +26,9 @@ If you are developing a production application, we recommend using TypeScript an
     - Install Axios
     - Setup Cors
     - Set Cookies when API call set {withCredentials:true}
+    - Install react-redux + @reduxjs/toolkit https://redux-toolkit.js.org/introduction/getting-started
+    - => configureStore => Provider => createSlice => Add Reducer to store
+    - 
 
 
 

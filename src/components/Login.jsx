@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../utils/userSlice';
+import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../utils/constants';
 
 
 const Login = () => {
   const [emailId, setEmailId] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate()
+
+
+  const dispatch = useDispatch();
 
   const[error, setError] = useState('');
   const[sccess, setSccess] = useState('');
@@ -16,12 +24,17 @@ const Login = () => {
     setSccess('');
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/api/login/", {
+      const response = await axios.post(BASE_URL +"/login", {
         email:emailId,
         password:password,
       },{withCredentials:true});
 
       console.log(response); 
+      dispatch(addUser(response.data));
+      return navigate('/feed');
+
+     
+
 
       if(response.status ===200){
         setSccess(response.data.message || "Login successful!");

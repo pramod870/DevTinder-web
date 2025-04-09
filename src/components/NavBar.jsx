@@ -1,7 +1,18 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
+  const user_data = useSelector(store=> store.user);
+
+
+  const defaultAvt = "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+
+    // Extract profile picture if user is logged in and it exists
+  const profilePicture = user_data?.data?.profile_picture || defaultAvt;
+
+
+ 
   return (
     <div>
         <div className="navbar bg-contain shadow-lg">
@@ -12,13 +23,15 @@ const NavBar = () => {
             alt="logo"
           />
         </div>
+        {user_data && <p className="flex px-4">Welcome, {user_data.data.username}</p>}
         <div className="flex-none gap-2">
           <div className="dropdown dropdown-end mx-4">
-            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+   
+      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
                 <img
                   alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                  src={profilePicture} />
               </div>
             </div>
             <ul
