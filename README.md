@@ -22,6 +22,10 @@ If you are developing a production application, we recommend using TypeScript an
     - Create BrowserRouter > Routes > Route=/ Body > RouteChildren
     -Create Outlet in your Body Component 
     - Create Footer
+    - Create Login Page
+    - Install Axios
+    - Setup Cors
+    - Set Cookies when API call set {withCredentials:true}
 
 
 
@@ -32,3 +36,5 @@ Body
     Route=/connections => Connections
     Route=/profile => Profile
     
+
+
