@@ -28,7 +28,11 @@ If you are developing a production application, we recommend using TypeScript an
     - Set Cookies when API call set {withCredentials:true}
     - Install react-redux + @reduxjs/toolkit https://redux-toolkit.js.org/introduction/getting-started
     - => configureStore => Provider => createSlice => Add Reducer to store
-    - 
+    - Login and see if your data is coming properly in the store
+    - NavBAr should update as soon as user logs in 
+    - Refector our code to add constants file + create a component folder
+    - If token not present redirect to login page
+
 
 
 

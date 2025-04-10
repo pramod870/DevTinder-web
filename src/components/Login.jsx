@@ -24,20 +24,23 @@ const Login = () => {
     setSccess('');
 
     try {
-      const response = await axios.post(BASE_URL +"/login", {
+      const response = await axios.post(BASE_URL +"/login/", {
         email:emailId,
         password:password,
       },{withCredentials:true});
 
-      console.log(response); 
-      dispatch(addUser(response.data));
-      return navigate('/feed');
-
-     
-
+      console.log(response.data);
 
       if(response.status ===200){
+        const { access_token, refresh_token, user } = response.data;
+          localStorage.setItem('access_token', access_token);
+          localStorage.setItem('refresh_token', refresh_token);
+          // ✅ Set default Axios Authorization header
+          axios.defaults.headers.common['Authorization'] = `Bearer ${access_token}`;
         setSccess(response.data.message || "Login successful!");
+        dispatch(addUser(response.data));
+        return navigate('/feed');
+  
 
 
       } 
