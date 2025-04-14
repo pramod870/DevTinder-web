@@ -1,11 +1,13 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { removeUser } from '../utils/userSlice';
 
 const NavBar = () => {
   const user_data = useSelector(store=> store.user);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
 
   const defaultAvt = "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
@@ -16,6 +18,7 @@ const NavBar = () => {
   const handleLogout = ()=>{
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
+    dispatch(removeUser());
     window.location.href = '/login';
   };
 
@@ -23,14 +26,17 @@ const NavBar = () => {
  
   return (
     <div>
-        <div className="navbar bg-contain shadow-lg bg-slate-200">
-        <div className="flex-1">
-          <img
-            className='w-40 rounded-md'
-            src="/uni_invoice_logo.png"
-            alt="logo"
-          />
-        </div>
+        <div className="navbar fixed top-0 left-0 w-full bg-contain shadow-lg bg-slate-200 z-50">
+            <div className="flex-1">
+              <img
+                className="w-40 rounded-md"
+                src="/download.png"
+                alt="logo"
+              />
+            </div>
+        
+
+
         {user_data && <p className="flex px-4">Welcome, {user_data.username}</p>}
         <div className="flex-none gap-2">
           <div className="dropdown dropdown-end mx-4">

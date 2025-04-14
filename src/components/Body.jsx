@@ -7,6 +7,7 @@ import axios from 'axios'
 import { BASE_URL } from '../utils/constants'
 import { addUser } from '../utils/userSlice'
 import Sidebar from './Sidebar'
+import Profile from './Profile'
 
 
 const Body = () => {
@@ -54,7 +55,7 @@ const Body = () => {
     <div>
         <NavBar />
         <Sidebar />
-        <Outlet />
+        <Outlet /> 
         <Footer />
     </div>
   )

@@ -32,6 +32,7 @@ If you are developing a production application, we recommend using TypeScript an
     - NavBAr should update as soon as user logs in 
     - Refector our code to add constants file + create a component folder
     - If token not present redirect to login page
+    - logout feature build 
 
 
 
@@ -43,5 +44,6 @@ Body
     Route=/connections => Connections
     Route=/profile => Profile
     
+
 
 
