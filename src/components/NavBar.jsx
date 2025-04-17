@@ -1,78 +1,5 @@
-// import React from 'react'
-// import { useDispatch, useSelector } from 'react-redux';
-// import { Link, useNavigate } from 'react-router-dom';
-// import { removeUser } from '../utils/userSlice';
 
-// const NavBar = () => {
-//   const user_data = useSelector(store=> store.user);
-
-//   const navigate = useNavigate();
-//   const dispatch = useDispatch();
-
-
-//   const defaultAvt = "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-
-//     // Extract profile picture if user is logged in and it exists
-//   const profilePicture = user_data?.profile_picture || defaultAvt;
-
-//   const handleLogout = ()=>{
-//     localStorage.removeItem('access_token');
-//     localStorage.removeItem('refresh_token');
-//     dispatch(removeUser());
-//     window.location.href = '/login';
-//   };
-
-
- 
-//   return (
-//     <div>
-//         <div className="navbar fixed top-0 left-0 w-full bg-contain shadow-lg bg-slate-200 z-50">
-//             <div className="flex-1">
-//               <img
-//                 className="w-40 rounded-md"
-//                 src="/download.png"
-//                 alt="logo"
-//               />
-//             </div>
-        
-
-
-//         {user_data && <p className="flex px-4">Welcome, {user_data.username}</p>}
-//         <div className="flex-none gap-2">
-//           <div className="dropdown dropdown-end mx-4">
-   
-//       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-//               <div className="w-10 rounded-full">
-//                 <img
-//                   alt="Tailwind CSS Navbar component"
-//                   src={profilePicture} />
-//               </div>
-//             </div>
-//             <ul
-//               tabIndex={0}
-//               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-//               <li>
-//                 <Link to="/profile"className="justify-between">
-//                   Profile
-//                   <span className="badge">New</span>
-//                 </Link>
-//               </li>
-//               <li><a>Settings</a></li>
-//               <li><a onClick={handleLogout}>Logout</a></li>
-//             </ul>
-//           </div>
-//         </div>
-
-//       </div>
-  
-//     </div>
-//   )
-// }
-
-// export default NavBar;
-
-
-import React from 'react';
+import React, { use } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { removeUser } from '../utils/userSlice';
@@ -80,12 +7,13 @@ import RealTime from './RealTime';
 
 const NavBar = () => {
   const user = useSelector(store => store.user);
+  console.log("user23", user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const defaultAvatar = "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp";
-  const profilePicture = user?.userData?.profile_picture || defaultAvatar;
-  const username = user?.userData?.username || 'Guest';
+  const profilePicture = user?.data?.profile_picture || defaultAvatar;
+  const username = user?.data?.username || 'Guest';
 
   const handleLogout = () => {
     localStorage.removeItem('access_token');
@@ -162,6 +90,12 @@ const NavBar = () => {
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
                   >
                     Connections
+                  </Link>
+                  <Link
+                    to="/requests"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                  >
+                    Request
                   </Link>
                   <button
                     onClick={handleLogout}

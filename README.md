@@ -37,7 +37,8 @@ If you are developing a production application, we recommend using TypeScript an
     - Edit profile picture build 
     - Use Toast && setToast and save the profile
     - see all connection 
-    
+    - New Page - See all my connection requests
+
 
 
 

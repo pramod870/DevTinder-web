@@ -43,6 +43,7 @@ const Connections = () => {
           <p><strong>Receiver:</strong> {conn.receiver.username} (ID: {conn.receiver.id})</p>
           <p><strong>Status:</strong> {conn.status}</p>
           <p><strong>Time:</strong> {new Date(conn.timestamp).toLocaleString()}</p>
+         
         </div>
       ))}
 
