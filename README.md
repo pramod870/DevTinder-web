@@ -33,6 +33,11 @@ If you are developing a production application, we recommend using TypeScript an
     - Refector our code to add constants file + create a component folder
     - If token not present redirect to login page
     - logout feature build 
+    - Create Profile Components && Create UserCard and inport into Profile 
+    - Edit profile picture build 
+    - Use Toast && setToast and save the profile
+    - see all connection 
+    
 
 
 

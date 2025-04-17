@@ -8,6 +8,8 @@ import { BASE_URL } from '../utils/constants'
 import { addUser } from '../utils/userSlice'
 import Sidebar from './Sidebar'
 import Profile from './Profile'
+import RealTime from './RealTime'
+import Connections from './Connections'
 
 
 const Body = () => {
@@ -55,8 +57,10 @@ const Body = () => {
     <div>
         <NavBar />
         <Sidebar />
+        {/* <Connections /> */}
         <Outlet /> 
         <Footer />
+
     </div>
   )
 }
